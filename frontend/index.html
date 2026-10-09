@@ -1,0 +1,113 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f7f7ef">
+  <meta name="description" content="OuttaDoor helps you discover small, joyful outdoor adventures.">
+  <title>OuttaDoor — Touch Grass. Make Memories.</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="#">OuttaDoor <span>🌿</span></a>
+    <p class="header-note">Less screen. More world.</p>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">A LITTLE MORE OUTSIDE</p>
+        <h1>Touch Grass.<br>Make Memories.</h1>
+        <p class="hero-description">
+          Your thoughtful companion for finding little adventures
+          and making ordinary days feel special.
+        </p>
+        <button id="startBtn" class="primary-btn" type="button">
+          Plan my adventure →
+        </button>
+      </div>
+
+      <div class="hero-art">
+        <div class="hero-blob"></div>
+        <img class="exercise-image"
+             src="images/exercise.jpeg"
+             alt="People exercising outdoors"
+             onerror="this.style.display='none'; document.querySelector('.image-fallback').hidden=false;">
+        <div class="image-fallback" hidden>🌿　🌳　🥾</div>
+        <span class="floating-leaf leaf-one">✦</span>
+        <span class="floating-leaf leaf-two">✧</span>
+      </div>
+    </section>
+
+    <section class="planner-section" id="quest-section">
+      <div class="section-heading">
+        <p class="eyebrow">YOUR DAY, YOUR WAY</p>
+        <h2>What's your vibe?</h2>
+        <p>Choose a mood, make a little time, and we'll shape your next outdoor moment.</p>
+      </div>
+
+      <div class="activity-grid" role="group" aria-label="Choose an activity">
+        <button class="activity-card" data-activity="Nature" aria-pressed="false" type="button">
+          <span class="activity-icon">🌳</span><span>Nature</span>
+        </button>
+        <button class="activity-card" data-activity="Walking" aria-pressed="false" type="button">
+          <span class="activity-icon">🚶</span><span>Walking</span>
+        </button>
+        <button class="activity-card" data-activity="Photography" aria-pressed="false" type="button">
+          <span class="activity-icon">📸</span><span>Photography</span>
+        </button>
+        <button class="activity-card" data-activity="Friends" aria-pressed="false" type="button">
+          <span class="activity-icon">👥</span><span>Friends</span>
+        </button>
+      </div>
+
+      <p id="selectedActivity" class="selection-note" aria-live="polite">
+        Pick the kind of outdoor moment you're in the mood for.
+      </p>
+
+      <div class="planner-card">
+        <div class="form-row">
+          <label for="duration">How much time do you have?</label>
+          <select id="duration">
+            <option>15 minutes</option>
+            <option selected>30 minutes</option>
+            <option>1 hour</option>
+            <option>2 hours</option>
+          </select>
+        </div>
+
+        <div class="form-row">
+          <label for="mood">What's your mood?</label>
+          <select id="mood">
+            <option>Relaxing</option>
+            <option selected>Curious</option>
+            <option>Active</option>
+            <option>Social</option>
+          </select>
+        </div>
+
+        <button id="generateBtn" class="generate-btn" type="button">
+          Create my outdoor quest ✦
+        </button>
+
+        <section id="result" class="result-card" aria-live="polite"
+                 aria-busy="false" hidden></section>
+      </div>
+    </section>
+
+    <section class="closing-note">
+      <span>☀️</span>
+      <p>Small plans. Fresh air. Stories to keep.</p>
+    </section>
+  </main>
+
+  <footer>
+    <span>OuttaDoor 🌿</span>
+    <span>Made for more moments outside.</span>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
