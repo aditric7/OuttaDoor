@@ -1,4 +1,5 @@
 import json
+import os
 import urllib.request
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
@@ -194,9 +195,16 @@ Return ONLY valid JSON in this exact structure:
     for attempt in range(2):
         try:
             request = urllib.request.Request(
-                "http://localhost:11434/api/chat",
+                f"{os.getenv('OLLAMA_BASE_URL', 'http://localhost:11434').rstrip('/')}/api/chat",
                 data=json.dumps(payload).encode("utf-8"),
-                headers={"Content-Type": "application/json"},
+                headers={
+    "Content-Type": "application/json",
+    **(
+        {"Authorization": f"Bearer {os.environ['OLLAMA_API_KEY']}"}
+        if os.getenv("OLLAMA_API_KEY")
+        else {}
+    ),
+},
                 method="POST",
             )
 
